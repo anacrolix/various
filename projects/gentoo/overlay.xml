@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layman>
+  <overlays>
+    <overlay type="svn"
+	     src="https://stupidape.dyndns.org/svn/gentoo"
+	     contact="anacrolix@gmail.com"
+	     name="stupidape">
+      <link>https://stupidape.dyndns.org/</link>
+      <description>
+      Contains my ebuilds and portage modifications.
+      </description>
+    </overlay>
+  </overlays>
+</layman>
