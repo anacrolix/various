@@ -1,0 +1,11 @@
+syntax: glob
+*.pyc
+*.ncb
+*.suo
+*.db
+*.user
+
+syntax: regexp
+tibia/butox/cutil/(monoclk|getxwin|ptraceidle|readmem|xsendkey)
+projects/prolepsis/(members|stances)\.(bak|dat|dir)
+Debug/
