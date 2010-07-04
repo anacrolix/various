@@ -1,0 +1,136 @@
+body {
+    font-family: Verdana, Arial;
+    font-size: 10pt;
+    background-color: #1E1E20;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+.bodyrow {
+    background-color: #2A2C2B;
+    width: 100%;
+    overflow: hidden;
+}
+#header {
+    text-align: center;
+}
+#main {
+    display: table;
+}
+#footer {
+    text-align: center;
+    color: white;
+    font-family: Verdana, Arial;
+    font-size: 8pt;
+}
+#left {
+    display: table-cell;
+    vertical-align: top;
+    width: 160px;
+    background-color: #2A2C2B;
+}
+#left a {
+    font-weight: bold;
+    font-size: 10pt;
+    font-family: Arial;
+}
+#menu {
+    background-color: #374140;
+    vertical-align: top;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 8pt;
+    line-height: 12pt;
+    padding: 3px;
+}
+form {
+    margin: 0;
+}
+#menu a {
+    color: #d7d7d7;
+}
+#center {
+    //display: table-cell;
+    background-color: #FFF2DB;
+    padding: 3px;
+}
+#search-ad {
+    overflow: hidden;
+    float: right;
+    top: 0;
+}
+#menu-title {
+    color: green;
+    font-size: 16pt;
+    //text-decoration: underline;
+    font-weight: bold;
+    //display: inline-block;
+}
+#cse-search-box * {
+    float: right;
+}
+#content-title * {
+    //white-space: nowrap;
+    display: inline;
+}
+#content-title {
+    font-size: 20pt;
+    color: #DC3522;
+    font-weight: bold;
+   // white-space: nowrap;
+}
+/*
+.world-form input, .world-form select {
+    font-family: sans-serif;
+    font-size: 8pt;
+    padding: 0;
+}
+*/
+.stattab {
+    width: 100%;
+    //background-color: #DC3522;
+}
+.stattab th, .stattab td {
+    padding: 2;
+    font-family: Verdana;
+    font-size: 10pt;
+}
+.stattab th {
+    font-weight: bold;
+    color: white;
+    background-color: #c1754e;
+}
+.stattab tr.odd {
+    background-color: #ffcdb4;
+}
+.stattab tr.even {
+    background-color: #ffa873;
+}
+.greyed {
+    //background-color: white;
+    opacity: 0.6;
+}
+a {
+    text-decoration: none;
+}
+a.char, a.guild {
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    color: Blue;
+}
+.ally {
+    color: Blue;
+}
+a.enemy {
+    color: Red;
+}
+a.friend {
+    color: Green;
+}
+a.unspec {
+    color: Grey;
+}
