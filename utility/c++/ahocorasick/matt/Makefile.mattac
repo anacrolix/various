@@ -1,0 +1,11 @@
+CXX = g++
+CC = $(CXX)
+CXXFLAGS = -O3 -Wall -march=native
+LDFLAGS =
+
+default: clean test
+clean:
+	-rm -f test *.o
+test: test.o
+test.o: test.cpp AhoCorasick.hpp Timer.hpp
+
