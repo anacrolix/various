@@ -1,3 +1,6 @@
+// Matt Joiner 2010
+// Requires C99 and GCC-compatibility
+
 #include <assert.h>
 #include <errno.h>
 #include <float.h>
@@ -34,10 +37,14 @@ static void log_debug(char const *fmt, ...)
     verify(0 <= vfprintf(stderr, fmt, ap));
     va_end(ap);
 }
+//#define log_debug(...)
 
 static double random_weight()
 {
-    double rv = (double)(rand()+1)/((uintmax_t)RAND_MAX+2);
+    double rv =
+            //(double)(rand()+1)/((uintmax_t)RAND_MAX+2)
+            (rand()+0.5)/(RAND_MAX+1.0)
+        ;
     assert(0.0 < rv && rv < 1.0);
     return rv;
 }
@@ -265,4 +272,26 @@ int main(int argc, char **argv)
     default:
         exit(1);
     }
+    return 0;
 }
+
+/*
+Answers for Q2:
+
+ *  if x fits inside y, and y fits inside z
+    then
+        for i in 1 to d
+            x_i < y_(pi_1(i)) and y_i < z_(pi_2(i))
+            then x_i < z_(pi_2(pi_1(i)))
+    fi
+
+ *  box_fit_other(x, y)
+        if len(x) > len(y)
+            return false
+        min_heapify(x)
+        min_heapify(y)
+        while (len(x))
+            if min_extract(x) >= min_extract(y)
+                return false
+        return true
+*/
