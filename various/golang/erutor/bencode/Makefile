@@ -1,4 +1,0 @@
-include $(GOROOT)/src/Make.inc
-TARG=bencode
-GOFILES=bencode.go
-include $(GOROOT)/src/Make.pkg
