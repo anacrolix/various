@@ -1,5 +1,0 @@
-Hardy: libgtk2.0-dev libgstreamer0.10-dev
-	make -f Makefile.ubuntu
-
-Default:
-	make
