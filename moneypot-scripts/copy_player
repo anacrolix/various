@@ -1,0 +1,75 @@
+var leader = 'vjs';
+var baseBet = 600;
+var nextBet = baseBet;
+var stoppedAt;
+var inGame;
+
+engine.on('game_starting', function(info) {
+    stoppedAt = Number.MAX_VALUE;
+    inGame = false;
+});
+
+engine.on('game_started', function() {
+});
+
+engine.on('game_crash', function(data) {
+	if (!inGame) return;
+	if (data.game_crash >= stoppedAt) {
+		nextBet = baseBet;
+	} else {
+		nextBet *= Math.PI;
+	}
+});
+
+engine.on('player_bet', function(data) {
+	if (data.username == leader) {
+		var roundedBet = 100*Math.ceil(nextBet/100);
+		engine.placeBet(roundedBet, 1000000);
+	} else if (data.username == engine.getUsername()) {
+		inGame = true;
+	}
+});
+
+engine.on('cashed_out', function(resp) {
+	if (resp.username == leader) {
+		engine.cashOut();
+	}
+	if (resp.username == engine.getUsername()) {
+		stoppedAt = resp.stopped_at;
+	}
+});
+
+engine.on('msg', function(data) {
+	if (data.username == leader) {
+		engine.chat('<3');
+	}
+});
+
+engine.on('connect', function() {
+    console.log('Client connected, this wont happen when you run the script');
+});
+
+engine.on('disconnect', function() {
+    console.log('Client disconnected');
+});
+
+
+//Getters:
+console.log('Balance: ' + engine.getBalance());
+console.log('The current payout is: ' + engine.getCurrentPayout());
+console.log('My username is: ', engine.getUsername());
+console.log('The max current bet is: ', engine.getMaxBet()/100, ' Bits');
+
+
+//Helpers:
+console.log('Was the last game played? ', engine.lastGamePlayed()?'Yes':'No');
+console.log('Last game status: ', engine.lastGamePlay());
+
+
+//Actions:
+//Do this between the 'game_starting' and 'game_started' events
+//engine.placeBet(betInSatoshis, autoCashOutinPercent, autoPlay);
+
+//engine.cashOut(); //Do this when playing
+//engine.stop(); //Stops the strategy
+//engine.chat('Hello Spam');
