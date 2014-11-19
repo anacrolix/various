@@ -1,5 +1,5 @@
 var leader = 'vjs';
-var baseBet = 600;
+var baseBet = 100;
 var nextBet = baseBet;
 var stoppedAt;
 var inGame;
@@ -17,7 +17,7 @@ engine.on('game_crash', function(data) {
 	if (data.game_crash >= stoppedAt) {
 		nextBet = baseBet;
 	} else {
-		nextBet *= Math.PI;
+		nextBet *= Math.E;
 	}
 });
 
